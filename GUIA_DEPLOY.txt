@@ -1,0 +1,131 @@
+# GUIA RAPIDO - Deploy Vercel
+
+## SCRIPTS DISPONIVEIS
+
+1. `deploy.bat` - Mais simples, dois cliques
+2. `deploy-simples.ps1` - PowerShell sem emojis
+
+---
+
+## COMO USAR
+
+### Opcao 1: Script BAT (Recomendado)
+
+1. Copie para sua pasta do projeto
+2. Dois cliques em `deploy.bat`
+3. Siga as instrucoes
+
+OU no CMD:
+```
+cd C:\Users\marco\Desktop\aapp_jobmatch-main
+deploy.bat
+```
+
+---
+
+### Opcao 2: PowerShell
+
+```powershell
+cd C:\Users\marco\Desktop\aapp_jobmatch-main
+
+# Se der erro, rode primeiro:
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+
+# Execute:
+.\deploy-simples.ps1
+```
+
+---
+
+## O QUE O SCRIPT FAZ
+
+1. Remove vercel.json problematico
+2. Cria novo vercel.json limpo
+3. Verifica Vercel CLI
+4. Faz deploy automatico
+5. Mostra proximos passos
+
+---
+
+## DEPOIS DO DEPLOY
+
+1. Copie a URL que aparece
+   Exemplo: https://jobmatch-abc123.vercel.app
+
+2. Acesse: https://vercel.com/dashboard
+
+3. Clique no projeto
+
+4. Settings -> Environment Variables
+
+5. Adicione:
+
+```
+MONGODB_URI = mongodb+srv://user:pass@cluster.mongodb.net/jobmatch
+JWT_SECRET = seu_secret_super_secreto_123
+GEMINI_API_KEY = AIzaSyCog7QYLOesQDO66S61ji3WKEEoVDI2E2M
+MERCADOPAGO_ACCESS_TOKEN = APP_USR-3595746059942621-082712-a66b43c5eef3e27189815df67f6bfeb4-2655345330
+MERCADOPAGO_PUBLIC_KEY = APP_USR-601547e8-10ae-4515-bbff-30eb7ffd0fd1
+```
+
+6. Rode novamente: `deploy.bat` ou `vercel --prod`
+
+---
+
+## GERAR APK
+
+Depois do deploy funcionando:
+
+1. Va em: https://www.pwabuilder.com/
+2. Cole sua URL do Vercel
+3. Start -> Package For Stores -> Android
+4. Configure:
+   - Package ID: com.jobmatch.twa
+   - Upload keystore: android-app/android.keystore
+   - Password: android123
+5. Download APK!
+
+---
+
+## MONGODB ATLAS
+
+1. Criar conta: https://cloud.mongodb.com/
+2. Criar cluster gratis (M0)
+3. Criar usuario e senha
+4. Liberar IP: 0.0.0.0/0
+5. Copiar connection string
+
+---
+
+## TROUBLESHOOTING
+
+### Erro: vercel.json
+- Delete o arquivo e rode o script novamente
+
+### Erro: Vercel CLI not found
+```
+npm install -g vercel
+```
+
+### Erro: Module not found
+```
+npm install
+```
+
+---
+
+## LINKS UTEIS
+
+- Vercel: https://vercel.com/dashboard
+- MongoDB: https://cloud.mongodb.com/
+- PWABuilder: https://www.pwabuilder.com/
+
+---
+
+## RESUMO
+
+1. Execute: deploy.bat
+2. Aguarde deploy
+3. Adicione env vars no dashboard
+4. Execute novamente
+5. Pronto!

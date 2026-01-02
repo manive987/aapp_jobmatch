@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.jobmatch.twa",
+      "sha256_cert_fingerprints": [
+        "0F:FA:23:E2:89:AB:EF:75:2D:D4:F2:98:A8:D6:92:A4:F5:CE:90:7E:C9:DE:C2:90:C6:49:1B:CB:BC:F6:ED:47"
+      ]
+    }
+  }
+]

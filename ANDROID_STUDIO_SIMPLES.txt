@@ -1,0 +1,196 @@
+# GUIA VISUAL - Android Studio APK
+
+## PASSOS SIMPLIFICADOS
+
+---
+
+## 1. INSTALAR ANDROID STUDIO
+
+Download: https://developer.android.com/studio
+
+Instale normalmente (Next, Next, Finish)
+
+Primeira vez demora (download de componentes)
+
+---
+
+## 2. CRIAR PROJETO
+
+File → New → New Project
+
+Escolha: Empty Activity
+
+Configure:
+```
+Name: JobMatch
+Package: com.jobmatch.twa
+Language: Kotlin
+Min SDK: API 21
+```
+
+Click: Finish
+
+Aguarde Gradle Build (demora na primeira vez)
+
+---
+
+## 3. ADICIONAR BIBLIOTECA TWA
+
+Abra: app/build.gradle
+
+Adicione na seção dependencies:
+```
+implementation 'com.google.androidbrowserhelper:androidbrowserhelper:2.5.0'
+```
+
+Click: Sync Now (barra amarela no topo)
+
+---
+
+## 4. CONFIGURAR ANDROIDMANIFEST.XML
+
+Abra: app/src/main/AndroidManifest.xml
+
+Cole o XML completo (está no arquivo ANDROID_STUDIO_GUIDE.md)
+
+IMPORTANTE: Mude a URL para sua URL do Vercel!
+
+Procure por: android:host="jobmatch.vercel.app"
+Mude para: android:host="SUA-URL-VERCEL.app"
+
+---
+
+## 5. CRIAR ASSETLINKS.JSON
+
+1. Botão direito em: app/src/main
+2. New → Directory → Nome: assets
+3. Dentro de assets, criar: .well-known
+4. Dentro de .well-known, criar arquivo: assetlinks.json
+
+Cole o conteúdo (está no guia completo)
+
+Estrutura final:
+```
+app/src/main/assets/.well-known/assetlinks.json
+```
+
+---
+
+## 6. GERAR APK ASSINADO
+
+Build → Generate Signed Bundle / APK
+
+Escolha: APK
+
+Click: Next
+
+Na tela de Keystore:
+- Choose existing...
+- Navegue até: android.keystore
+- Password: android123
+- Alias: android
+- Key password: android123
+
+Click: Next
+
+Escolha:
+- release
+- V1 e V2 (ambos marcados)
+
+Click: Finish
+
+Aguarde build...
+
+Click em "locate" quando terminar
+
+---
+
+## 7. APK PRONTO!
+
+O APK estará em:
+```
+app/release/app-release.apk
+```
+
+Renomeie para: JobMatch.apk
+
+---
+
+## TESTAR NO CELULAR
+
+1. Envie o APK para o celular
+2. Abra o arquivo
+3. Permita "Instalar de fontes desconhecidas"
+4. Instale!
+
+---
+
+## ALTERNATIVA: TESTAR VIA USB
+
+1. Habilite "USB Debugging" no celular:
+   - Configurações → Sobre
+   - Toque 7x em "Número da versão"
+   - Volte → Opções desenvolvedor
+   - Ative "USB Debugging"
+
+2. Conecte USB
+
+3. No Android Studio:
+   - Selecione seu device no topo
+   - Click ▶️ Run
+
+---
+
+## SE DER ERRO
+
+### Gradle sync failed:
+```
+File → Invalidate Caches → Invalidate and Restart
+```
+
+### SDK not found:
+```
+Tools → SDK Manager
+Instale Android SDK 33
+```
+
+### Keystore error:
+- Verifique senha: android123
+- Verifique alias: android
+
+---
+
+## PROXIMOS PASSOS
+
+Depois de testar:
+
+1. Gerar AAB para Play Store:
+   - Build → Generate Signed Bundle / APK
+   - Escolha: Android App Bundle
+   - Mesmo processo
+
+2. Publicar:
+   - https://play.google.com/console
+   - Criar app ($25)
+   - Upload AAB
+   - Preencher informações
+   - Enviar para revisão
+
+---
+
+## RESUMO
+
+1. Instalar Android Studio
+2. Criar projeto Empty Activity
+3. Adicionar biblioteca TWA
+4. Configurar AndroidManifest.xml
+5. Criar assetlinks.json
+6. Generate Signed APK
+7. Pronto!
+
+Tempo: ~1 hora primeira vez
+
+---
+
+Para mais detalhes, veja:
+ANDROID_STUDIO_GUIDE.md

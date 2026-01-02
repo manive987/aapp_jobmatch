@@ -1,0 +1,39 @@
+{
+  "packageId": "com.jobmatch.twa",
+  "host": "pix-gateway-15.preview.emergentagent.com",
+  "name": "JobMatch",
+  "launcherName": "JobMatch",
+  "display": "standalone",
+  "themeColor": "#3b82f6",
+  "navigationColor": "#ffffff",
+  "backgroundColor": "#ffffff",
+  "enableNotifications": true,
+  "startUrl": "/",
+  "iconUrl": "https://pix-gateway-15.preview.emergentagent.com/icon-512.png",
+  "maskableIconUrl": "https://pix-gateway-15.preview.emergentagent.com/icon-512.png",
+  "monochromeIconUrl": "https://pix-gateway-15.preview.emergentagent.com/icon-512.png",
+  "splashScreenFadeOutDuration": 300,
+  "signingKey": {
+    "path": "./android.keystore",
+    "alias": "android"
+  },
+  "appVersionName": "1.0.0",
+  "appVersionCode": 1,
+  "shortcuts": [],
+  "generatorApp": "bubblewrap-cli",
+  "webManifestUrl": "https://pix-gateway-15.preview.emergentagent.com/manifest.json",
+  "fallbackType": "customtabs",
+  "features": {
+    "locationDelegation": {
+      "enabled": false
+    },
+    "playBilling": {
+      "enabled": false
+    }
+  },
+  "alphaDependencies": {
+    "enabled": false
+  },
+  "enableSiteSettingsShortcut": true,
+  "orientation": "default"
+}
